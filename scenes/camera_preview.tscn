@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://cehs15k4e5u1n"]
+
+[ext_resource type="Script" uid="uid://bnd58ghw3dg1k" path="res://scripts/camera_preview.gd" id="1_y4guq"]
+[ext_resource type="PackedScene" uid="uid://bxpu8n1uxggyb" path="res://scenes/camera_settings_slider.tscn" id="2_1kga8"]
+[ext_resource type="Resource" uid="uid://bkhbtewmix3fg" path="res://resources/iso_settings.tres" id="3_e702v"]
+[ext_resource type="Resource" uid="uid://bntgi64qv5yhw" path="res://resources/aperture_settings.tres" id="4_ikyf3"]
+[ext_resource type="Resource" uid="uid://cp7ywr082u3k8" path="res://resources/shutter_speed_settings.tres" id="5_ikyf3"]
+[ext_resource type="Resource" uid="uid://c6ouljs1lj40r" path="res://resources/color_temperature_settings.tres" id="6_5hf72"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y4guq"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.17641911, 0.17641908, 0.17641908, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="CameraPreviewLayer" type="CanvasLayer" unique_id=22998222 node_paths=PackedStringArray("preview_texture_rect")]
+script = ExtResource("1_y4guq")
+preview_texture_rect = NodePath("PreviewBackgroundPanel/CameraPreviewTexture")
+
+[node name="BackgroundPanel" type="Panel" parent="." unique_id=1277015992]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y4guq")
+
+[node name="PreviewBackgroundPanel" type="PanelContainer" parent="." unique_id=704945316]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -980.0
+offset_top = -616.5
+offset_right = 1212.0
+offset_bottom = 616.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CameraPreviewTexture" type="TextureRect" parent="PreviewBackgroundPanel" unique_id=840147804]
+layout_mode = 2
+
+[node name="SettingsBackgroundPanel" type="PanelContainer" parent="." unique_id=1881845466]
+offset_left = 31.0
+offset_top = 103.5
+offset_right = 271.0
+offset_bottom = 1336.5
+
+[node name="SettingsContainer" type="VBoxContainer" parent="SettingsBackgroundPanel" unique_id=132261683]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="CameraSettingsISO" parent="SettingsBackgroundPanel/SettingsContainer" unique_id=2001476869 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
+layout_mode = 2
+camera_preview = NodePath("../../..")
+setting_name = "ISO"
+command = "iso"
+settings = ExtResource("3_e702v")
+
+[node name="CameraSettingsAperture" parent="SettingsBackgroundPanel/SettingsContainer" unique_id=1326643584 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
+layout_mode = 2
+camera_preview = NodePath("../../..")
+setting_name = "Aperture"
+command = "aperture"
+settings = ExtResource("4_ikyf3")
+
+[node name="CameraSettingsShutterSpeed" parent="SettingsBackgroundPanel/SettingsContainer" unique_id=737807101 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
+layout_mode = 2
+camera_preview = NodePath("../../..")
+setting_name = "Shutter Speed"
+command = "shutterspeed"
+settings = ExtResource("5_ikyf3")
+
+[node name="CameraSettingsTemperature" parent="SettingsBackgroundPanel/SettingsContainer" unique_id=1628659218 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
+layout_mode = 2
+camera_preview = NodePath("../../..")
+setting_name = "Color Temperature"
+command = "colortemperature"
+settings = ExtResource("6_5hf72")

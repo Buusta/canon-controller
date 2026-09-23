@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CameraSettings" format=3 uid="uid://bntgi64qv5yhw"]
+
+[ext_resource type="Script" uid="uid://dgtv01fa6dcxy" path="res://scripts/camera_settings.gd" id="1_vah4h"]
+
+[resource]
+script = ExtResource("1_vah4h")
+values = Array[String](["5", "5.6", "6.3", "7.1", "8", "9", "10", "11", "13", "14", "16", "18", "20", "22", "25"])
+metadata/_custom_type_script = "uid://dgtv01fa6dcxy"

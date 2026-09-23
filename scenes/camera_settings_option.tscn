@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c5usw13n48drt"]
+
+[ext_resource type="Script" uid="uid://d00qs40t0u1i0" path="res://camera_settings_options.gd" id="1_sbkh3"]
+
+[node name="CameraSettings" type="PanelContainer" unique_id=899175842 node_paths=PackedStringArray("camera_settings_label", "camera_settings_option")]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_sbkh3")
+camera_settings_label = NodePath("CameraSettingsVBox/CameraSettingsLabel")
+camera_settings_option = NodePath("CameraSettingsVBox/CameraSettingsOptions")
+
+[node name="CameraSettingsVBox" type="VBoxContainer" parent="." unique_id=1063654373]
+layout_mode = 2
+
+[node name="CameraSettingsLabel" type="Label" parent="CameraSettingsVBox" unique_id=245663879]
+layout_mode = 2
+text = ": -"
+horizontal_alignment = 1
+
+[node name="CameraSettingsOptions" type="OptionButton" parent="CameraSettingsVBox" unique_id=1443769191]
+layout_mode = 2
+
+[connection signal="item_selected" from="CameraSettingsVBox/CameraSettingsOptions" to="." method="_option_selected"]

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CameraSettings" format=3 uid="uid://ctf3387cadds6"]
+
+[ext_resource type="Script" uid="uid://dgtv01fa6dcxy" path="res://scripts/camera_settings.gd" id="1_5csdg"]
+
+[resource]
+script = ExtResource("1_5csdg")
+values = Array[String](["3:2", "4:3", "16:9", "1:1"])
+metadata/_custom_type_script = "uid://dgtv01fa6dcxy"
