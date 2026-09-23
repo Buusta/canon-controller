@@ -40,7 +40,6 @@ func _send_command(command: String) -> void:
 func set_config(config: String, value: String) -> void:
 	var cmd: String = "set-config " + config + "=" + value
 	_send_command(cmd)
-	print(cmd)
 
 
 func _take_picture() -> void:
@@ -51,7 +50,11 @@ func _take_picture() -> void:
 
 
 func _update_preview() -> void:
-	var image := Image.load_from_file("/tmp/thumb_preview.jpg")
+	var path: String =  "/tmp/thumb_preview.jpg"
+	if not FileAccess.file_exists(path):
+		return
+
+	var image: Image = Image.load_from_file("/tmp/thumb_preview.jpg")
 
 	if image == null:
 		return
@@ -65,3 +68,6 @@ func _cleanup() -> void:
 
 		process["stdio"].close()
 		OS.kill(process["pid"])
+
+		DirAccess.remove_absolute("/tmp/thumb_preview.jpg")
+		get_tree().quit()

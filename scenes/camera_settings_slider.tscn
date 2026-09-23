@@ -22,6 +22,7 @@ layout_mode = 2
 
 [node name="CameraSettingsLabel" type="Label" parent="CameraSettingsVBox" unique_id=183815510]
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 text = ": -"
 horizontal_alignment = 1
 

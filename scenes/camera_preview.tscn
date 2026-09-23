@@ -21,7 +21,7 @@ corner_detail = 5
 
 [node name="CameraPreviewLayer" type="CanvasLayer" unique_id=22998222 node_paths=PackedStringArray("preview_texture_rect")]
 script = ExtResource("1_y4guq")
-preview_texture_rect = NodePath("PreviewBackgroundPanel/CameraPreviewTexture")
+preview_texture_rect = NodePath("BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/PreviewBackgroundPanel/CameraPreviewTexture")
 
 [node name="BackgroundPanel" type="Panel" parent="." unique_id=1277015992]
 anchors_preset = 15
@@ -31,56 +31,95 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_y4guq")
 
-[node name="PreviewBackgroundPanel" type="PanelContainer" parent="." unique_id=704945316]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -980.0
-offset_top = -616.5
-offset_right = 1212.0
-offset_bottom = 616.5
-grow_horizontal = 2
-grow_vertical = 2
+[node name="VBoxContainer" type="VBoxContainer" parent="BackgroundPanel" unique_id=307096437]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
 
-[node name="CameraPreviewTexture" type="TextureRect" parent="PreviewBackgroundPanel" unique_id=840147804]
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel/VBoxContainer" unique_id=1419203329]
+layout_mode = 2
+theme_override_constants/margin_top = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer" unique_id=2061517002]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer" unique_id=659308057]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 100
+
+[node name="SettingsBackgroundPanel" type="PanelContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer" unique_id=1881845466]
 layout_mode = 2
 
-[node name="SettingsBackgroundPanel" type="PanelContainer" parent="." unique_id=1881845466]
-offset_left = 31.0
-offset_top = 103.5
-offset_right = 271.0
-offset_bottom = 1336.5
-
-[node name="SettingsContainer" type="VBoxContainer" parent="SettingsBackgroundPanel" unique_id=132261683]
+[node name="SettingsContainer" type="VBoxContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SettingsBackgroundPanel" unique_id=132261683]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="CameraSettingsISO" parent="SettingsBackgroundPanel/SettingsContainer" unique_id=2001476869 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
+[node name="CameraSettingsISO" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SettingsBackgroundPanel/SettingsContainer" unique_id=2001476869 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
 layout_mode = 2
-camera_preview = NodePath("../../..")
+camera_preview = NodePath("../../../../../../../..")
 setting_name = "ISO"
 command = "iso"
 settings = ExtResource("3_e702v")
 
-[node name="CameraSettingsAperture" parent="SettingsBackgroundPanel/SettingsContainer" unique_id=1326643584 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
+[node name="CameraSettingsAperture" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SettingsBackgroundPanel/SettingsContainer" unique_id=1326643584 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
 layout_mode = 2
-camera_preview = NodePath("../../..")
+camera_preview = NodePath("../../../../../../../..")
 setting_name = "Aperture"
 command = "aperture"
 settings = ExtResource("4_ikyf3")
 
-[node name="CameraSettingsShutterSpeed" parent="SettingsBackgroundPanel/SettingsContainer" unique_id=737807101 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
+[node name="CameraSettingsShutterSpeed" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SettingsBackgroundPanel/SettingsContainer" unique_id=737807101 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
 layout_mode = 2
-camera_preview = NodePath("../../..")
+camera_preview = NodePath("../../../../../../../..")
 setting_name = "Shutter Speed"
 command = "shutterspeed"
 settings = ExtResource("5_ikyf3")
 
-[node name="CameraSettingsTemperature" parent="SettingsBackgroundPanel/SettingsContainer" unique_id=1628659218 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
+[node name="CameraSettingsTemperature" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer/SettingsBackgroundPanel/SettingsContainer" unique_id=1628659218 node_paths=PackedStringArray("camera_preview") instance=ExtResource("2_1kga8")]
 layout_mode = 2
-camera_preview = NodePath("../../..")
+camera_preview = NodePath("../../../../../../../..")
 setting_name = "Color Temperature"
 command = "colortemperature"
 settings = ExtResource("6_5hf72")
+
+[node name="MarginContainer2" type="MarginContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer" unique_id=1860188793]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="PreviewBackgroundPanel" type="PanelContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2" unique_id=704945316]
+custom_minimum_size = Vector2(1851, 1234)
+custom_maximum_size = Vector2(1851, 1234)
+layout_mode = 2
+
+[node name="CameraPreviewTexture" type="TextureRect" parent="BackgroundPanel/VBoxContainer/MarginContainer/HBoxContainer/MarginContainer2/PreviewBackgroundPanel" unique_id=840147804]
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="BackgroundPanel/VBoxContainer" unique_id=2125156482]
+layout_mode = 2
+theme_override_constants/margin_top = 44
+theme_override_constants/margin_bottom = 44
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer2" unique_id=1174330884]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1968610309]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+
+[node name="ExitButton" type="Button" parent="BackgroundPanel/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=44693975]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Exit
+"
+
+[node name="MarginContainer2" type="MarginContainer" parent="BackgroundPanel/VBoxContainer/MarginContainer2/HBoxContainer" unique_id=1301794104]
+layout_mode = 2
+theme_override_constants/margin_left = 2051
+
+[connection signal="button_up" from="BackgroundPanel/VBoxContainer/MarginContainer2/HBoxContainer/ExitButton" to="." method="_cleanup"]
